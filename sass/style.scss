@@ -1,0 +1,228 @@
+$font-color: #fff;
+$primary-color: #4b3c68;
+$btn-eliminar-bg: #FF5A82;
+$btn-completar-bg: #53476b;
+$submit-bg: #6e5e8e;
+$formulario-bg: #d0bcd5;
+$tareas-bg: #d0bcd5;
+$footer-bg: #1b1725;
+$datos-bg: #3e354e;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 45px;
+}
+
+// MAIN
+
+.main {
+  background: #fff;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.contenedor__arriba {
+  background-color: $primary-color;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  margin: 0 auto;
+
+  .titulo {
+    color: $font-color;
+  }
+
+  .datos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    gap: 50px;
+
+    .datos__contenedor {
+      background-color: $datos-bg;
+      padding: 4px;
+      border-radius: 3px;
+      color: $font-color;
+    }
+  }
+}
+
+/* CONTENEDOR ABAJO */
+
+.contenedor__abajo {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 30px 50px;
+
+  .formulario {
+    background-color: $formulario-bg;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: min-content;
+    border-radius: 5px;
+
+    .input__tarea {
+      border: none;
+      background: none;
+      outline: none;
+      background-color: #fff;
+      padding: 8px;
+      border-radius: 3px;
+      margin: 0;
+      font-size: 1rem;
+
+      &:focus {
+        outline: 2px solid $primary-color;
+      }
+
+      &-error {
+        outline: 2px solid red;
+      }
+    }
+
+    .input__submit {
+      @extend .input__tarea;
+      cursor: pointer;
+      color: $font-color;
+      background-color: $submit-bg;
+
+      &:hover {
+        color: $footer-bg;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .contenedor__tareas {
+    background-color: $tareas-bg;
+    padding: 20px;
+    height: min-content;
+    border-radius: 5px;
+
+    & h2 {
+      text-align: center;
+      color: $primary-color;
+    }
+
+    .mensaje-error {
+      margin: 15px 0;
+      color: crimson;
+      font-weight: 600;
+      text-align: center;
+      display: none;
+      animation: scale 0.5s linear infinite alternate;
+
+      &-active {
+        display: block;
+      }
+    }
+
+    @keyframes scale {
+      to {
+        scale: 1.02;
+      }
+    }
+
+    .tareas {
+      margin-top: 1rem;
+
+      .item-tarea {
+        background-color: white;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin: 10px 0;
+        gap: 1rem;
+
+        .completada {
+          background-color: $tareas-bg;
+          border-radius: 3px;
+          color: $datos-bg;
+          text-decoration: line-through;
+        }
+
+        .botones {
+          display: flex;
+          gap: 5px;
+
+          .eliminar {
+            border: none;
+            width: 20px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+            background-color: $btn-eliminar-bg;
+
+            &:hover {
+              scale: 1.1
+            }
+          }
+
+          .completar {
+            @extend .eliminar;
+            background-color: $btn-completar-bg;
+
+            &:hover {
+              scale: 1.1
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+// FOOTER
+
+.footer {
+  background-color: $footer-bg;
+  line-height: 45px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: $font-color;
+}
+
+// MEDIA QUERIES
+
+@media screen and (max-width: 1250px) {
+  .contenedor__abajo {
+    width: 90%;
+    padding: 30px 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contenedor__abajo {
+    grid-template-columns: 1fr;
+    place-content: start;
+  }
+}

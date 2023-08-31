@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 45px;
+}
+
+.main {
+  background: #fff;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.contenedor__arriba {
+  background-color: #4b3c68;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  margin: 0 auto;
+}
+.contenedor__arriba .titulo {
+  color: #fff;
+}
+.contenedor__arriba .datos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  gap: 50px;
+}
+.contenedor__arriba .datos .datos__contenedor {
+  background-color: #3e354e;
+  padding: 4px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+/* CONTENEDOR ABAJO */
+.contenedor__abajo {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 30px 50px;
+}
+.contenedor__abajo .formulario {
+  background-color: #d0bcd5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: -moz-min-content;
+  height: min-content;
+  border-radius: 5px;
+}
+.contenedor__abajo .formulario .input__tarea, .contenedor__abajo .formulario .input__submit {
+  border: none;
+  background: none;
+  outline: none;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 3px;
+  margin: 0;
+  font-size: 1rem;
+}
+.contenedor__abajo .formulario .input__tarea:focus, .contenedor__abajo .formulario .input__submit:focus {
+  outline: 2px solid #4b3c68;
+}
+.contenedor__abajo .formulario .input__tarea-error {
+  outline: 2px solid red;
+}
+.contenedor__abajo .formulario .input__submit {
+  cursor: pointer;
+  color: #fff;
+  background-color: #6e5e8e;
+}
+.contenedor__abajo .formulario .input__submit:hover {
+  color: #1b1725;
+  font-weight: 600;
+}
+.contenedor__abajo .contenedor__tareas {
+  background-color: #d0bcd5;
+  padding: 20px;
+  height: -moz-min-content;
+  height: min-content;
+  border-radius: 5px;
+}
+.contenedor__abajo .contenedor__tareas h2 {
+  text-align: center;
+  color: #4b3c68;
+}
+.contenedor__abajo .contenedor__tareas .mensaje-error {
+  margin: 15px 0;
+  color: crimson;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+  animation: scale 0.5s linear infinite alternate;
+}
+.contenedor__abajo .contenedor__tareas .mensaje-error-active {
+  display: block;
+}
+@keyframes scale {
+  to {
+    scale: 1.02;
+  }
+}
+.contenedor__abajo .contenedor__tareas .tareas {
+  margin-top: 1rem;
+}
+.contenedor__abajo .contenedor__tareas .tareas .item-tarea {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  gap: 1rem;
+}
+.contenedor__abajo .contenedor__tareas .tareas .item-tarea .completada {
+  background-color: #d0bcd5;
+  border-radius: 3px;
+  color: #3e354e;
+  text-decoration: line-through;
+}
+.contenedor__abajo .contenedor__tareas .tareas .item-tarea .botones {
+  display: flex;
+  gap: 5px;
+}
+.contenedor__abajo .contenedor__tareas .tareas .item-tarea .botones .eliminar, .contenedor__abajo .contenedor__tareas .tareas .item-tarea .botones .completar {
+  border: none;
+  width: 20px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #FF5A82;
+}
+.contenedor__abajo .contenedor__tareas .tareas .item-tarea .botones .eliminar:hover, .contenedor__abajo .contenedor__tareas .tareas .item-tarea .botones .completar:hover {
+  scale: 1.1;
+}
+.contenedor__abajo .contenedor__tareas .tareas .item-tarea .botones .completar {
+  background-color: #53476b;
+}
+.contenedor__abajo .contenedor__tareas .tareas .item-tarea .botones .completar:hover {
+  scale: 1.1;
+}
+
+.footer {
+  background-color: #1b1725;
+  line-height: 45px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+}
+
+@media screen and (max-width: 1250px) {
+  .contenedor__abajo {
+    width: 90%;
+    padding: 30px 0px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contenedor__abajo {
+    grid-template-columns: 1fr;
+    place-content: start;
+  }
+}/*# sourceMappingURL=style.css.map */
